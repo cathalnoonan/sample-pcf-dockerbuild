@@ -1,0 +1,11 @@
+control/~
+control/node_modules
+control/obj
+control/out
+
+dist/
+
+solution/bin
+solution/obj
+
+.DS_Store
