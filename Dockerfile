@@ -41,4 +41,4 @@ RUN dotnet restore ./solution
 COPY . .
 
 # Build the project
-RUN ./build_local.sh
+RUN dotnet build ./solution -c Release 
