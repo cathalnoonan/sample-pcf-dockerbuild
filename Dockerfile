@@ -7,6 +7,9 @@ SHELL ["/bin/bash", "--login", "-c"]
 # Install nvm
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 
+# Install xmlstarlet for setting the version numbers
+RUN apt-get update && apt-get install -y xmlstarlet
+
 # Work in the /app folder instead of container root
 WORKDIR /app
 
@@ -28,6 +31,9 @@ RUN npm install --prefix control
 
 # Copy all files (excluding what is specified in .dockerignore file)
 COPY . .
+
+# Set the version numbers consistently in the repo.
+RUN ./version.sh
 
 # Build the project
 RUN dotnet build ./solution -c Release 
