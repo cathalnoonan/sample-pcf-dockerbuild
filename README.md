@@ -5,8 +5,9 @@ Repo containing a basic PCF control/solution that can be built using a Docker co
 
 ## How to build in docker?
 Prerequisites:
-- Docker installed / configured
-- Ability to run sh scripts
+- Docker installed / configured, and is currently running
+- Mac/Linux: 
+  - Ability to run sh scripts
 
 Steps:
 1. Clone the repo
@@ -22,8 +23,10 @@ Notes:
 
 ## How to build locally?
 Prerequisites:
-- Docker installed / configured
-- Ability to run sh scripts
+- Dotnet 6 installed
+- NodeJS (and NPM) installed
+- Mac/Linux: 
+  - Ability to run sh scripts
 
 Steps:
 1. Clone the repo
@@ -31,6 +34,7 @@ Steps:
 3. Run `./build_local.sh`
 
 
-## Get the solution file
-- Open the `./dist` folder, solution will be in there
+## How to get the solution file
+- Build the solution using one of the options above
+- Open the `./dist` folder, the solution will be in there
   ![Solution in dist folder](./img/03_solution_in_dist.png)
