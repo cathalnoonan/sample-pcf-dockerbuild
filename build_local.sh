@@ -1,4 +1,4 @@
-# /bin/bash
+#!/bin/bash
 
 if (command -v nvm) ; then
   nvm install && nvm use 
