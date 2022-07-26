@@ -1,5 +1,7 @@
 # Sample - PCF Docker build
 
+[![Build](https://github.com/cathalnoonan/sample-pcf-dockerbuild/actions/workflows/BUILD.yml/badge.svg)](https://github.com/cathalnoonan/sample-pcf-dockerbuild/actions/workflows/BUILD.yml)
+
 Repo containing a basic PCF control/solution that can be built using a Docker container.
 
 
