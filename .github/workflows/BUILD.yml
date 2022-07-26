@@ -1,0 +1,37 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    branches: [ main ]
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Use the build script from the repository instead of re-implementing here. 
+    - uses: Build docker image
+      run: ./build_docker.sh
+
+    # Prepare artifact(s)
+    # - Create an arbitrary file in the root of the dist directory.
+    # - This is to try and make it clearer that there is a nested zip inside the artifact zip file.
+    - name: Create ./dist/repo-url.txt
+      run: echo "${{ github.server_url }}/${{ github.repository }}" > ./dist/repo-url.txt
+
+    # Upload the artifact from the dist folder
+    - name: 'Upload artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ github.event.repository.name }}__extract_this_zip
+        path: ./dist/*
+        retention-days: 15
