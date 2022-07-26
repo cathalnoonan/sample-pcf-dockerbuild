@@ -24,7 +24,7 @@ RUN nvm install && nvm use
 # Copy over the npm package/lock files and install.
 # Doing this before the build script allows docker to cache this layer to improve performance in subsequent builds.
 COPY ./control/package.json ./control/package-lock.json ./control/
-RUN npm install --prefix control
+RUN npm install --prefix control --no-audit --ignore-scripts --no-fund
 
 # Copy all files (excluding what is specified in .dockerignore file)
 COPY . .
